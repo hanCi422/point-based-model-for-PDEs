@@ -29,5 +29,5 @@ python train_darcyflow.py
 python test_darcyflow.py
 ```
 
-Modify the model_path to your .ckpt file path and the data_path to the .npy file path for Poisson's Equation and .mat for Darcy Flow Equation (provided in https://github.com/zongyi-li/fourier_neural_operator).
+Modify the model_path to your .ckpt file path and the data_path to the .npy file path for Poisson's Equation (provided in https://drive.google.com/drive/folders/18DLtlu2Z__XG0CZRq4A7BQb4xpqUwmsy?usp=sharing) and .mat for Darcy Flow Equation (provided in https://github.com/zongyi-li/fourier_neural_operator).
 
