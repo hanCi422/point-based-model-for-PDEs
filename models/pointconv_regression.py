@@ -73,7 +73,7 @@ def get_model(point_cloud, is_training, output_dim, sigma, bn_decay=None, weight
     # print('fc_1: ', net.shape) # (32, 2048, 128)
     end_points['feats'] = net
     # net = tf_util.dropout(net, keep_prob=0.5, is_training=is_training, scope='dp1')
-    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=tf.nn.sigmoid, weight_decay=weight_decay, scope='fc2')
+    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=None, weight_decay=weight_decay, scope='fc2')
     # print('fc: ', time.time()-t0)
     # print('fc_2: ', net.shape) # (32, 2048, 10)
     # print('end_point:', end_points['feats'].shape) # (32, 2048, 128)
@@ -97,7 +97,7 @@ def get_model_3layers(point_cloud, is_training, output_dim, sigma, bn_decay=None
     # FC layers
     net = tf_util.conv1d(l0_points, 128, 1, padding='VALID', bn=True, is_training=is_training, scope='fc1', bn_decay=bn_decay, weight_decay=weight_decay)
     end_points['feats'] = net
-    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=tf.nn.sigmoid, weight_decay=weight_decay, scope='fc2')
+    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=None, weight_decay=weight_decay, scope='fc2')
 
     return tf.squeeze(net, axis=-1), end_points
 
@@ -117,7 +117,7 @@ def get_model_2layers(point_cloud, is_training, output_dim, sigma, bn_decay=None
     # FC layers
     net = tf_util.conv1d(l0_points, 128, 1, padding='VALID', bn=True, is_training=is_training, scope='fc1', bn_decay=bn_decay, weight_decay=weight_decay)
     end_points['feats'] = net
-    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=tf.nn.sigmoid, weight_decay=weight_decay, scope='fc2')
+    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=None, weight_decay=weight_decay, scope='fc2')
 
     return tf.squeeze(net, axis=-1), end_points
 
@@ -135,7 +135,7 @@ def get_model_1layers(point_cloud, is_training, output_dim, sigma, bn_decay=None
     # FC layers
     net = tf_util.conv1d(l0_points, 128, 1, padding='VALID', bn=True, is_training=is_training, scope='fc1', bn_decay=bn_decay, weight_decay=weight_decay)
     end_points['feats'] = net
-    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=tf.nn.sigmoid, weight_decay=weight_decay, scope='fc2')
+    net = tf_util.conv1d(net, output_dim, 1, padding='VALID', activation_fn=None, weight_decay=weight_decay, scope='fc2')
 
     return tf.squeeze(net, axis=-1), end_points
 
